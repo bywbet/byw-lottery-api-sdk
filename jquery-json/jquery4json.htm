@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<br>演示内容：采用Jquery进行JSON(p)格式采集并分析数据。
+<br>付费接口的采集格式与免费接口完全一致
+<br>如需使用付费接口，请修改采集为对应地址
+<br>如有其它疑问请访问<a href="http://www.byw.bet/"><b style="color:#f00">www.byw.bet</b></a>
+<br>
+<br>采集地址：http://授权api地址<br>
+<div id="okay"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+    $.ajax({
+        url: 'http://授权api地址',
+        dataType: 'jsonp',
+        type: 'POST',
+        timeout: 5000,
+        cache: false,
+        jsonp: false, // 禁用 jQuery 自动加 callback 参数
+        jsonpCallback: 'jsonpReturn', // 必须和接口返回回调一致
+        success: function(result){
+            $("#okay").append("<br>"+new Date().format("yyyy-MM-dd hh:mm:ss")+" 共采集到 " + result.Rows + " 行开奖数据：<br>");
+            for (var i = 0; i < result.Data.length; i++) {
+                var p = result.Data[i].Expect;
+                $("#okay").append('<br>开奖期号：'+p.substr(0,8)+'-'+p.substr(-3,3));
+                $("#okay").append('<br>开奖号码：'+result.Data[i].Opencode);
+                $("#okay").append('<br>开奖时间：'+result.Data[i].Opentime);
+                $("#okay").append('<br>');
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {  
+            alert("加载彩票数据出错!");
+        }
+    });
+});
+
+// 格式化日期函数保持不变
+Date.prototype.format = function(format){
+    var args = {
+        "M+" : this.getMonth() + 1,
+        "d+" : this.getDate(),
+        "h+" : this.getHours(),
+        "m+" : this.getMinutes(),
+        "s+" : this.getSeconds(),
+        "q+" : Math.floor((this.getMonth() + 3) / 3),
+        "S" : this.getMilliseconds()
+    };
+    if(/(y+)/.test(format))
+        format = format.replace(RegExp.$1,(this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for(var i in args){
+        var n = args[i];
+        if(new RegExp("("+ i +")").test(format))
+            format = format.replace(RegExp.$1,RegExp.$1.length == 1 ? n : ("00" + n).substr(("" + n).length));
+    }
+    return format;
+};
+</script>
+</body>
+</html>
