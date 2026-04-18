@@ -1,0 +1,31 @@
+{
+  "name": "byw-lottery-api-sdk",
+  "version": "1.0.0",
+  "description": "博易网彩票开奖数据API SDK - 实时开奖数据服务，支持C#、PHP、JavaScript多语言集成",
+  "keywords": [
+    "彩票API",
+    "开奖数据",
+    "实时开奖",
+    "彩票SDK",
+    "cqssc",
+    "11选5",
+    "快三",
+    "重庆时时彩",
+    "广东11选5",
+    "API接口",
+    "lottery",
+    "lottery-api",
+    "lottery-sdk"
+  ],
+  "homepage": "https://github.com/your-repo/byw-lottery-api-sdk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/byw-lottery-api-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-repo/byw-lottery-api-sdk/issues"
+  },
+  "author": "Byw.bet",
+  "license": "MIT",
+  "readme": "README.md"
+}
