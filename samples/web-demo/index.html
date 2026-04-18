@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="博易网彩票开奖数据API - 实时开奖结果查询SDK，支持C#、PHP、JavaScript多语言集成。彩票数据API接口平台，提供重庆时时彩、广东11选5等多种彩票实时开奖数据。">
+    <meta name="keywords" content="彩票API接口,实时开奖数据API,彩票数据SDK,开奖数据接口平台,重庆时时彩API,广东11选5API,彩票开奖结果查询">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="博易网彩票开奖数据API - 多语言SDK开源项目">
+    <meta property="og:description" content="彩票开奖数据API接口，支持C#/PHP/JavaScript多语言SDK，让开发者快速集成彩票实时开奖数据。">
+    <meta property="og:type" content="website">
+    <title>博易网彩票开奖数据API - 实时开奖结果查询SDK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            margin: 15px 0;
+        }
+        
+        code {
+            font-family: 'Fira Code', 'Consolas', monospace;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        .feature p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: white;
+            margin: 0;
+        }
+        
+        .demo-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .loading.show {
+            display: block;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>博易网彩票开奖数据API</h1>
+            <p class="subtitle">实时开奖结果查询SDK - 多语言支持 (C# / PHP / JavaScript)</p>
+        </header>
+        
+        <nav>
+            <a href="#features">功能特性</a>
+            <a href="#demo">在线演示</a>
+            <a href="#sdk">SDK下载</a>
+            <a href="docs/api-reference.html">API文档</a>
+            <a href="docs/sdk-guide.html">使用指南</a>
+            <a href="docs/faq.html">常见问题</a>
+        </nav>
+        
+        <section id="features" class="grid">
+            <div class="card">
+                <h2>实时数据</h2>
+                <p>毫秒级响应，实时获取最新彩票开奖结果，支持重庆时时彩、广东11选5、安徽快三等多种主流彩种。</p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>重庆时时彩</h3>
+                        <p>lotteryid: 4</p>
+                    </div>
+                    <div class="feature">
+                        <h3>广东11选5</h3>
+                        <p>lotteryid: 59</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>多语言SDK</h2>
+                <p>官方提供多种编程语言SDK，开发者可根据项目技术栈自由选择，快速集成彩票数据服务。</p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>C# SDK</h3>
+                        <p>.NET Framework/Core</p>
+                    </div>
+                    <div class="feature">
+                        <h3>PHP SDK</h3>
+                        <p>PHP 7.0+</p>
+                    </div>
+                    <div class="feature">
+                        <h3>JS SDK</h3>
+                        <p>Node.js / 浏览器</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>多种数据格式</h2>
+                <p>支持JSON、XML、JSON2、JSONP多种返回格式，满足不同开发场景需求。</p>
+                <pre><code>{
+  "Rows": 2,
+  "T": "4",
+  "Data": [
+    {"Expect": "20260418053", 
+     "Opencode": "9,0,0,1,1",
+     "Opentime": "2026-04-18 21:50:03"}
+  ]
+}</code></pre>
+            </div>
+        </section>
+        
+        <section id="demo" class="demo-section">
+            <h2>API在线演示</h2>
+            <div class="form-group">
+                <label for="lotteryType">选择彩种：</label>
+                <select id="lotteryType">
+                    <option value="4">重庆时时彩 (lotteryid: 4)</option>
+                    <option value="59">广东11选5 (lotteryid: 59)</option>
+                    <option value="85">安徽快三 (lotteryid: 85)</option>
+                    <option value="21">福彩3D (lotteryid: 21)</option>
+                    <option value="25">排列三 (lotteryid: 25)</option>
+                    <option value="22">双色球 (lotteryid: 22)</option>
+                    <option value="78">江苏快三 (lotteryid: 78)</option>
+                    <option value="8">北京赛车 (lotteryid: 8)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="limit">查询条数（1-20）：</label>
+                <input type="number" id="limit" value="5" min="1" max="20">
+            </div>
+            <button class="btn" onclick="fetchData()">查询开奖数据</button>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p style="margin-top: 15px;">加载中...</p>
+            </div>
+            
+            <div class="result" id="result"></div>
+        </section>
+        
+        <section id="sdk" class="grid">
+            <div class="card">
+                <h2>C# SDK</h2>
+                <p>适用于 .NET Framework / .NET Core 项目</p>
+                <pre><code>// NuGet安装
+Install-Package BywLottery.SDK
+
+// 或复制 src/csharp/ 到项目</code></pre>
+                <p><strong>示例代码：</strong></p>
+                <pre><code>var client = new BywClient("TOKEN");
+var result = await client.GetLatestAsync("4");
+// 重庆时时彩 lotteryid: 4</code></pre>
+            </div>
+            
+            <div class="card">
+                <h2>PHP SDK</h2>
+                <p>适用于 PHP 7.0+ 项目</p>
+                <pre><code>// Composer安装
+composer require byw/lottery-api-sdk
+
+// 或复制 src/php/ 到项目</code></pre>
+                <p><strong>示例代码：</strong></p>
+                <pre><code>$client = new BywClient('TOKEN');
+$result = $client->getLatest('4');
+// 重庆时时彩 lotteryid: 4</code></pre>
+            </div>
+            
+            <div class="card">
+                <h2>JavaScript SDK</h2>
+                <p>适用于 Node.js / 浏览器环境</p>
+                <pre><code>// npm安装
+npm install byw-lottery-api-sdk
+
+// 或复制 src/javascript/ 到项目</code></pre>
+                <p><strong>示例代码：</strong></p>
+                <pre><code>const client = new BywClient('TOKEN');
+const result = await client.latest('4');
+// 重庆时时彩 lotteryid: 4</code></pre>
+            </div>
+        </section>
+        
+        <footer>
+            <p>
+                <a href="https://www.byw.bet" target="_blank">官网</a> |
+                <a href="https://www.byw.bet/show.html" target="_blank">API文档</a> |
+                <a href="docs/api-reference.html">技术文档</a> |
+                <a href="https://github.com/your-repo/byw-lottery-api-sdk" target="_blank">GitHub</a>
+            </p>
+            <p style="margin-top: 15px; color: #999;">
+                博易网彩票开奖数据API SDK | 
+                彩票API接口 | 实时开奖数据 | 彩票数据SDK
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // 彩种名称映射 (使用 lotteryid)
+        const lotteryNames = {
+            '4': '重庆时时彩',
+            '59': '广东11选5',
+            '85': '安徽快三',
+            '21': '福彩3D',
+            '25': '排列三',
+            '22': '双色球',
+            '78': '江苏快三',
+            '8': '北京赛车'
+        };
+        
+        async function fetchData() {
+            const type = document.getElementById('lotteryType').value;
+            const limit = document.getElementById('limit').value;
+            const loading = document.getElementById('loading');
+            const result = document.getElementById('result');
+            
+            loading.classList.add('show');
+            result.classList.remove('show');
+            
+            try {
+                // 由于跨域限制，这里显示模拟数据
+                // 实际使用时需要通过服务端代理
+                const mockData = generateMockData(type, parseInt(limit));
+                
+                let html = `<h3>${lotteryNames[type]} 开奖结果</h3>`;
+                html += '<table style="width:100%; border-collapse: collapse; margin-top: 15px;">';
+                html += '<thead><tr style="background:#667eea; color:white;"><th style="padding:12px;">期号</th><th style="padding:12px;">开奖号码</th><th style="padding:12px;">开奖时间</th></tr></thead><tbody>';
+                
+                mockData.forEach(item => {
+                    html += `<tr style="border-bottom:1px solid #eee;"><td style="padding:12px;">${item.Expect}</td><td style="padding:12px;">${item.Opencode}</td><td style="padding:12px;">${item.Opentime}</td></tr>`;
+                });
+                
+                html += '</tbody></table>';
+                html += '<p style="margin-top:15px; color:#999; font-size:0.9rem;">注意：此为演示数据，实际使用请配置正确的API Token</p>';
+                
+                result.innerHTML = html;
+                result.classList.add('show');
+            } catch (error) {
+                result.innerHTML = `<p style="color:red;">请求失败：${error.message}</p>`;
+                result.classList.add('show');
+            } finally {
+                loading.classList.remove('show');
+            }
+        }
+        
+        // 生成模拟数据
+        function generateMockData(type, limit) {
+            const now = new Date();
+            const data = [];
+            
+            for (let i = 0; i < limit; i++) {
+                const time = new Date(now - i * 10 * 60 * 1000);
+                const dateStr = time.toISOString().slice(0, 10).replace(/-/g, '');
+                const expect = dateStr + String(53 - i).padStart(2, '0');
+                
+                let opencode;
+                switch(type) {
+                    case '4': // 重庆时时彩
+                        opencode = `${Math.floor(Math.random()*10)},${Math.floor(Math.random()*10)},${Math.floor(Math.random()*10)},${Math.floor(Math.random()*10)},${Math.floor(Math.random()*10)}`;
+                        break;
+                    case '59': // 广东11选5
+                        opencode = `${Math.floor(Math.random()*11)+1},${Math.floor(Math.random()*11)+1},${Math.floor(Math.random()*11)+1},${Math.floor(Math.random()*11)+1},${Math.floor(Math.random()*11)+1}`;
+                        break;
+                    case '85': // 安徽快三
+                    case '78': // 江苏快三
+                        opencode = `${Math.floor(Math.random()*6)+1},${Math.floor(Math.random()*6)+1},${Math.floor(Math.random()*6)+1}`;
+                        break;
+                    default:
+                        opencode = `${Math.floor(Math.random()*10)},${Math.floor(Math.random()*10)},${Math.floor(Math.random()*10)}`;
+                }
+                
+                data.push({
+                    Expect: expect,
+                    Opencode: opencode,
+                    Opentime: time.toISOString().replace('T', ' ').slice(0, 19)
+                });
+            }
+            
+            return data;
+        }
+        
+        // 页面加载时自动获取一次数据
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchData();
+        });
+    </script>
+</body>
+</html>
