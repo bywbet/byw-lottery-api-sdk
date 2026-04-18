@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+<br>演示内容：采用Jquery进行XML格式采集并分析数据。
+<br>付费接口的采集格式与免费接口完全一致
+<br>如需使用付费接口，请修改采集为对应地址
+<br>如有其它疑问请访问<a href="http://www.byw.bet/"><b style="color:#f00">www.byw.bet</b></a>
+<br>
+<br>采集地址：http://授权api地址<br>
+<div id="okay"></div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $.ajax({
+        url: 'proxy.php?src=http://授权api地址',
+        dataType: 'xml',
+        type: 'POST',
+        timeout: 5000,  // 超时延长到5秒
+        success: function(result){
+            // 根节点属性名是 row，不是 rows
+            var totalRows = $(result).find("xml").attr("row");
+            $("#okay").append("<br>"+new Date().format("yyyy-MM-dd hh:mm:ss")+" 共采集到 " + totalRows + " 行开奖数据：<br>");
+
+            $(result).find("row").each(function(){
+                var p = $(this).attr("expect");
+                $("#okay").append('<br>开奖期号：'+p.substr(0,8)+'-'+p.substr(-3,3));
+                $("#okay").append('<br>开奖号码：'+$(this).attr("opencode"));
+                $("#okay").append('<br>开奖时间：'+$(this).attr("opentime"));
+                $("#okay").append('<br>');
+            });
+
+            // 注：在JS采集到数据后，可以构造 data:{exp:'期号',res:'结果',now:'时间'} 
+            // 通过 ajax 推送到本地的接收网址转存到数据库。
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {  
+            alert("加载彩票数据出错! 错误信息：" + textStatus);
+        }
+    });
+});
+
+// 日期格式化函数
+Date.prototype.format = function(format){
+    var args = {
+        "M+" : this.getMonth() + 1,
+        "d+" : this.getDate(),
+        "h+" : this.getHours(),
+        "m+" : this.getMinutes(),
+        "s+" : this.getSeconds(),
+        "q+" : Math.floor((this.getMonth() + 3) / 3),
+        "S"  : this.getMilliseconds()
+    };
+    if(/(y+)/.test(format))
+        format = format.replace(RegExp.$1,(this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for(var i in args){
+        var n = args[i];
+        if(new RegExp("("+ i +")").test(format))
+            format = format.replace(RegExp.$1,RegExp.$1.length == 1 ? n : ("00" + n).substr(("" + n).length));
+    }
+    return format;
+};
+</script>
+</body>
+</html>
