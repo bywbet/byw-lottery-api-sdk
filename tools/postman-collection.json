@@ -1,0 +1,285 @@
+{
+	"info": {
+		"name": "Byw Lottery API",
+		"description": "博易网彩票开奖数据API - 实时开奖数据接口",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "获取最新开奖数据",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.byw.bet:868/api?token=YOUR_TOKEN&t=cqssc&limit=1&p=json",
+					"host": ["api.byw.bet"],
+					"port": "868",
+					"path": ["api"],
+					"query": [
+						{
+							"key": "token",
+							"value": "YOUR_TOKEN",
+							"description": "API接口密钥"
+						},
+						{
+							"key": "t",
+							"value": "cqssc",
+							"description": "彩种代码 (cqssc=重庆时时彩)"
+						},
+						{
+							"key": "limit",
+							"value": "1",
+							"description": "返回条数 (1-20)"
+						},
+						{
+							"key": "p",
+							"value": "json",
+							"description": "返回格式 (json/xml/json2/jsonp)"
+						}
+					]
+				},
+				"description": "获取指定彩种的最新一期开奖数据"
+			},
+			"response": []
+		},
+		{
+			"name": "获取多期开奖数据",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.byw.bet:868/api?token=YOUR_TOKEN&t=cqssc&limit=5&p=json",
+					"host": ["api.byw.bet"],
+					"port": "868",
+					"path": ["api"],
+					"query": [
+						{
+							"key": "token",
+							"value": "YOUR_TOKEN",
+							"description": "API接口密钥"
+						},
+						{
+							"key": "t",
+							"value": "cqssc",
+							"description": "彩种代码"
+						},
+						{
+							"key": "limit",
+							"value": "5",
+							"description": "返回条数"
+						},
+						{
+							"key": "p",
+							"value": "json",
+							"description": "返回格式"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取多期+下一期时间",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.byw.bet:868/api?token=YOUR_TOKEN&t=cqssc&limit=5&nexttime=1&p=json",
+					"host": ["api.byw.bet"],
+					"port": "868",
+					"path": ["api"],
+					"query": [
+						{
+							"key": "token",
+							"value": "YOUR_TOKEN"
+						},
+						{
+							"key": "t",
+							"value": "cqssc"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "nexttime",
+							"value": "1",
+							"description": "开启返回下一期开奖时间"
+						},
+						{
+							"key": "p",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "指定日期查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.byw.bet:868/api?token=YOUR_TOKEN&t=cqssc&date=20260418&p=json2",
+					"host": ["api.byw.bet"],
+					"port": "868",
+					"path": ["api"],
+					"query": [
+						{
+							"key": "token",
+							"value": "YOUR_TOKEN"
+						},
+						{
+							"key": "t",
+							"value": "cqssc"
+						},
+						{
+							"key": "date",
+							"value": "20260418",
+							"description": "日期格式：YYYYMMDD"
+						},
+						{
+							"key": "p",
+							"value": "json2",
+							"description": "推荐使用JSON2格式"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XML格式请求",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.byw.bet:868/api?token=YOUR_TOKEN&t=cqssc&limit=3&p=xml",
+					"host": ["api.byw.bet"],
+					"port": "868",
+					"path": ["api"],
+					"query": [
+						{
+							"key": "token",
+							"value": "YOUR_TOKEN"
+						},
+						{
+							"key": "t",
+							"value": "cqssc"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "p",
+							"value": "xml",
+							"description": "XML格式"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "广东11选5开奖查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.byw.bet:868/api?token=YOUR_TOKEN&t=gd11x5&limit=5&p=json",
+					"host": ["api.byw.bet"],
+					"port": "868",
+					"path": ["api"],
+					"query": [
+						{
+							"key": "token",
+							"value": "YOUR_TOKEN"
+						},
+						{
+							"key": "t",
+							"value": "gd11x5",
+							"description": "广东11选5"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "p",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "安徽快三开奖查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.byw.bet:868/api?token=YOUR_TOKEN&t=ahk3&limit=5&p=json",
+					"host": ["api.byw.bet"],
+					"port": "868",
+					"path": ["api"],
+					"query": [
+						{
+							"key": "token",
+							"value": "YOUR_TOKEN"
+						},
+						{
+							"key": "t",
+							"value": "ahk3",
+							"description": "安徽快三"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "p",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "双色球开奖查询",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.byw.bet:868/api?token=YOUR_TOKEN&t=ssq&limit=5&p=json",
+					"host": ["api.byw.bet"],
+					"port": "868",
+					"path": ["api"],
+					"query": [
+						{
+							"key": "token",
+							"value": "YOUR_TOKEN"
+						},
+						{
+							"key": "t",
+							"value": "ssq",
+							"description": "双色球"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "p",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
