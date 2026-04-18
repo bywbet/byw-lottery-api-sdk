@@ -8,7 +8,7 @@
 
 **博易网彩票开奖数据API SDK** - 实时开奖数据服务
 
-📡 官方API: [https://www.byw.bet](https://www.byw.bet) | 📖 API文档: [https://www.byw.bet/show.html](https://www.byw.bet/show.html)
+📡 官方API: [https://www.byw.bet](https://www.byw.bet) | 📖 API文档: [https://www.byw.bet/docs/index.html](https://www.byw.bet/docs/index.html)
 
 </div>
 
@@ -47,7 +47,7 @@
 | 服务 | 地址 |
 |------|------|
 | 官网 | https://www.byw.bet |
-| API文档 | https://www.byw.bet/show.html |
+| API文档 | https://www.byw.bet/docs/index.html |
 | API接口 | http://api.byw.bet:868 |
 
 ---
@@ -424,7 +424,7 @@ byw-lottery-api-sdk/
 ## 🔗 相关链接
 
 - 🌐 官网: https://www.byw.bet
-- 📖 API文档: https://www.byw.bet/show.html
+- 📖 API文档: https://www.byw.bet/docs/index.html
 - 💻 GitHub: https://github.com/your-repo/byw-lottery-api-sdk
 - 📧 邮箱: bywbet@gmail.com
 
