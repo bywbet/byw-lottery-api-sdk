@@ -1,6 +1,6 @@
 # byw-lottery-api-sdk
 
-📡 博易网实时彩票开奖数据 API SDK（https://www.byw.bet）
+📡 博易网实时彩票开奖数据 API SDK （ https://www.byw.bet ）
 
 ## 📌 项目简介
 
