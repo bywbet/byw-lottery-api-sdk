@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="彩票SDK下载 - 博易网彩票数据SDK，支持C#、PHP、JavaScript多语言，提供完整的SDK使用教程和示例代码。">
+    <meta name="keywords" content="彩票SDK,C# SDK,PHP SDK,JavaScript SDK,彩票数据SDK下载,彩票开发工具">
+    <title>SDK下载 - 博易网彩票开奖数据SDK</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: var(--text-muted);
+        }
+        
+        .nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .sdk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .sdk-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .sdk-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .sdk-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        
+        .csharp { background: #512bd4; }
+        .php { background: #777bb4; }
+        .javascript { background: #f7df1e; color: #000; }
+        
+        .sdk-info h3 {
+            font-size: 1.5rem;
+        }
+        
+        .sdk-info span {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .install-title {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        pre {
+            background: #0d1117;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+        
+        code {
+            color: #c9d1d9;
+        }
+        
+        .keyword { color: #ff7b72; }
+        .string { color: #a5d6ff; }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="nav">
+                <a href="index.html">首页</a>
+                <a href="api.html">API文档</a>
+                <a href="sdk.html">SDK介绍</a>
+                <a href="docs/index.html">技术文档</a>
+            </div>
+            <h1>彩票SDK下载</h1>
+            <p class="subtitle">多语言彩票数据SDK开发工具 - C# / PHP / JavaScript</p>
+        </header>
+        
+        <div class="sdk-grid">
+            <div class="sdk-card">
+                <div class="sdk-header">
+                    <div class="sdk-icon csharp">C#</div>
+                    <div class="sdk-info">
+                        <h3>C# SDK</h3>
+                        <span>.NET Framework / .NET Core</span>
+                    </div>
+                </div>
+                <p class="install-title">安装方式：</p>
+                <pre><code><span class="keyword">Install-Package</span> BywLottery.SDK</code></pre>
+                <p style="color: var(--text-muted); font-size: 0.875rem;">
+                    或复制 src/csharp/ 到项目
+                </p>
+                <a href="docs/sdk-guide.html#c-sdk" class="btn">查看教程</a>
+            </div>
+            
+            <div class="sdk-card">
+                <div class="sdk-header">
+                    <div class="sdk-icon php">PHP</div>
+                    <div class="sdk-info">
+                        <h3>PHP SDK</h3>
+                        <span>PHP 7.0+</span>
+                    </div>
+                </div>
+                <p class="install-title">安装方式：</p>
+                <pre><code>composer <span class="keyword">require</span> byw/lottery-api-sdk</code></pre>
+                <p style="color: var(--text-muted); font-size: 0.875rem;">
+                    或复制 src/php/ 到项目
+                </p>
+                <a href="docs/sdk-guide.html#php-sdk" class="btn">查看教程</a>
+            </div>
+            
+            <div class="sdk-card">
+                <div class="sdk-header">
+                    <div class="sdk-icon javascript">JS</div>
+                    <div class="sdk-info">
+                        <h3>JavaScript SDK</h3>
+                        <span>Node.js / 浏览器</span>
+                    </div>
+                </div>
+                <p class="install-title">安装方式：</p>
+                <pre><code>npm <span class="keyword">install</span> byw-lottery-api-sdk</code></pre>
+                <p style="color: var(--text-muted); font-size: 0.875rem;">
+                    或复制 src/javascript/ 到项目
+                </p>
+                <a href="docs/sdk-guide.html#javascript-sdk" class="btn">查看教程</a>
+            </div>
+        </div>
+        
+        <section style="margin-top: 3rem;">
+            <h2 style="color: var(--primary);">快速开始</h2>
+            <p>下载SDK后，只需几行代码即可接入彩票实时开奖数据：</p>
+            
+            <h3>C# 示例</h3>
+            <pre><code><span class="keyword">using</span> BywLottery.SDK;
+
+<span class="keyword">var</span> client = <span class="keyword">new</span> BywClient(<span class="string">"YOUR_TOKEN"</span>);
+<span class="keyword">var</span> result = <span class="keyword">await</span> client.GetLatestAsync(<span class="string">"cqssc"</span>);</code></pre>
+            
+            <h3>PHP 示例</h3>
+            <pre><code>&lt;?php
+<span class="keyword">require</span> <span class="string">'BywClient.php'</span>;
+
+$client = <span class="keyword">new</span> BywClient(<span class="string">'YOUR_TOKEN'</span>);
+$result = $client->getLatest(<span class="string">'cqssc'</span>);</code></pre>
+            
+            <h3>JavaScript 示例</h3>
+            <pre><code><span class="keyword">const</span> client = <span class="keyword">new</span> BywClient(<span class="string">'YOUR_TOKEN'</span>);
+<span class="keyword">const</span> result = <span class="keyword">await</span> client.latest(<span class="string">'cqssc'</span>);</code></pre>
+        </section>
+    </div>
+</body>
+</html>

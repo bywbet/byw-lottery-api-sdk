@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="彩票API接口详细文档 - 博易网彩票开奖数据接口，支持JSON/XML多格式返回，提供完整的API参数说明和示例代码。">
+    <meta name="keywords" content="彩票API接口,API接口文档,开奖数据接口,JSON API,XML API,彩票数据接口说明">
+    <title>API接口文档 - 博易网彩票开奖数据API</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: var(--text-muted);
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 2rem;
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        th {
+            background: rgba(99, 102, 241, 0.2);
+            font-weight: 600;
+        }
+        
+        code {
+            background: #0d1117;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+        
+        pre {
+            background: #0d1117;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0 2rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--primary);
+        }
+        
+        .badge.required {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .nav a:hover {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="nav">
+                <a href="index.html">首页</a>
+                <a href="api.html">API文档</a>
+                <a href="sdk.html">SDK介绍</a>
+                <a href="docs/index.html">技术文档</a>
+            </div>
+            <h1>彩票API接口文档</h1>
+            <p class="subtitle">完整API接口参考 - 实时开奖数据接口平台</p>
+        </header>
+        
+        <section>
+            <h2>接口概述</h2>
+            <p>博易网彩票API接口为开发者提供实时彩票开奖数据服务，支持JSON、XML、JSON2、JSONP多种返回格式。</p>
+            
+            <h3>接口地址</h3>
+            <pre><code>http://api.byw.bet:868/api</code></pre>
+            
+            <h3>请求方式</h3>
+            <p>所有接口均使用 <code>GET</code> 请求方式。</p>
+        </section>
+        
+        <section>
+            <h2>请求参数</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>必填</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>token</code></td>
+                        <td>String</td>
+                        <td><span class="badge required">必填</span></td>
+                        <td>API接口密钥</td>
+                    </tr>
+                    <tr>
+                        <td><code>t</code></td>
+                        <td>String</td>
+                        <td><span class="badge required">必填</span></td>
+                        <td>彩种代码（如：cqssc）</td>
+                    </tr>
+                    <tr>
+                        <td><code>p</code></td>
+                        <td>String</td>
+                        <td><span class="badge required">必填</span></td>
+                        <td>返回格式：json/xml/json2/jsonp</td>
+                    </tr>
+                    <tr>
+                        <td><code>limit</code></td>
+                        <td>Integer</td>
+                        <td><span class="badge">选填</span></td>
+                        <td>返回条数（1-20，默认1）</td>
+                    </tr>
+                    <tr>
+                        <td><code>nexttime</code></td>
+                        <td>Integer</td>
+                        <td><span class="badge">选填</span></td>
+                        <td>返回下一期时间（1=开启）</td>
+                    </tr>
+                    <tr>
+                        <td><code>date</code></td>
+                        <td>String</td>
+                        <td><span class="badge">选填</span></td>
+                        <td>指定日期（YYYYMMDD）</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section>
+            <h2>响应示例</h2>
+            <pre><code>{
+  "Rows": 2,
+  "T": "cqssc",
+  "Nexttime": "2026-04-18 22:10:00",
+  "Data": [
+    {
+      "Expect": "20260418053",
+      "Opencode": "9,0,0,1,1",
+      "Opentime": "2026-04-18 21:50:03"
+    }
+  ]
+}</code></pre>
+        </section>
+        
+        <section>
+            <h2>彩种代码</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>代码</th>
+                        <th>名称</th>
+                        <th>类别</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>cqssc</td><td>重庆时时彩</td><td>时时彩</td></tr>
+                    <tr><td>gd11x5</td><td>广东11选5</td><td>11选5</td></tr>
+                    <tr><td>ahk3</td><td>安徽快三</td><td>快三</td></tr>
+                    <tr><td>fc3d</td><td>福彩3D</td><td>3D</td></tr>
+                    <tr><td>pl3</td><td>排列三</td><td>排列</td></tr>
+                    <tr><td>ssq</td><td>双色球</td><td>双色球</td></tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section>
+            <h2>错误码</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>错误码</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1001</td><td>Token无效</td></tr>
+                    <tr><td>1002</td><td>Token已过期</td></tr>
+                    <tr><td>1003</td><td>彩种不存在</td></tr>
+                    <tr><td>1004</td><td>超出调用限制</td></tr>
+                    <tr><td>1005</td><td>日期格式错误</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

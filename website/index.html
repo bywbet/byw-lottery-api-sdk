@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="博易网彩票开奖数据API - 专业彩票API接口平台，提供实时开奖数据SDK，支持C#、PHP、JavaScript多语言集成。彩票数据API接口首选方案。">
+    <meta name="keywords" content="彩票API接口,实时开奖数据API,彩票数据SDK,开奖数据接口平台,重庆时时彩API,广东11选5API,彩票开奖结果查询,多语言SDK">
+    <meta name="author" content="Byw.bet">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="博易网彩票开奖数据API - 多语言SDK开源项目">
+    <meta property="og:description" content="专业彩票API接口平台，提供实时开奖数据SDK，支持C#、PHP、JavaScript多语言集成。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/your-repo/byw-lottery-api-sdk">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="博易网彩票开奖数据API">
+    <meta name="twitter:description" content="多语言彩票开奖数据SDK，让开发更简单。">
+    
+    <title>博易网彩票开奖数据API - 实时开奖数据SDK | 多语言支持</title>
+    
+    <link rel="canonical" href="https://github.com/your-repo/byw-lottery-api-sdk">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+        }
+        
+        /* SDK Section */
+        .sdks {
+            padding: 6rem 2rem;
+            background: var(--surface);
+        }
+        
+        .sdk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .sdk-card {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .sdk-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .sdk-icon {
+            width: 48px;
+            height: 48px;
+            background: #512bd4;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+        
+        .sdk-icon.php {
+            background: #777bb4;
+        }
+        
+        .sdk-icon.js {
+            background: #f7df1e;
+            color: #000;
+        }
+        
+        .sdk-info h3 {
+            font-size: 1.25rem;
+        }
+        
+        .sdk-info span {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .sdk-code {
+            background: #0d1117;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+        
+        /* Code Section */
+        .code-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .code-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .code-tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--surface);
+            border: none;
+            color: var(--text-muted);
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .code-tab.active {
+            background: #0d1117;
+            color: var(--text);
+        }
+        
+        .code-block {
+            background: #0d1117;
+            padding: 2rem;
+            border-radius: 0 16px 16px 16px;
+            overflow-x: auto;
+        }
+        
+        pre {
+            margin: 0;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+        
+        code {
+            color: #c9d1d9;
+        }
+        
+        .keyword { color: #ff7b72; }
+        .string { color: #a5d6ff; }
+        .function { color: #d2a8ff; }
+        .comment { color: #8b949e; }
+        
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.125rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">🎰 开源SDK项目</span>
+            <h1>博易网彩票开奖数据API</h1>
+            <p class="subtitle">
+                专业彩票API接口平台，提供实时开奖数据SDK。支持C#、PHP、JavaScript多语言集成，
+                轻松获取重庆时时彩、广东11选5、安徽快三等多种彩票实时开奖数据。
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="https://github.com/your-repo/byw-lottery-api-sdk" class="btn btn-primary">
+                    <span>GitHub</span>
+                </a>
+                <a href="docs/index.html" class="btn btn-secondary">
+                    <span>API文档</span>
+                </a>
+                <a href="docs/sdk-guide.html" class="btn btn-secondary">
+                    <span>SDK指南</span>
+                </a>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">3+</div>
+                    <div class="stat-label">编程语言</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10+</div>
+                    <div class="stat-label">支持彩种</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">数据格式</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">ms</div>
+                    <div class="stat-label">响应时间</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-title">
+            <h2>为什么选择我们的SDK</h2>
+            <p>专为开发者设计的彩票数据接口解决方案</p>
+        </div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>实时开奖数据</h3>
+                <p>毫秒级响应，实时获取最新彩票开奖结果。数据同步快速准确，支持重庆时时彩、广东11选5等主流彩种。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🧩</div>
+                <h3>多语言SDK支持</h3>
+                <p>官方提供C#、PHP、JavaScript等多种SDK，开源项目让开发者可以根据技术栈自由选择，快速集成。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>多格式数据</h3>
+                <p>支持JSON、XML、JSON2、JSONP多种返回格式，满足不同开发场景需求，前端后端均可轻松对接。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>安全可靠</h3>
+                <p>Token认证机制保障数据安全，支持IP白名单功能。企业级稳定性，为您的应用保驾护航。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>高并发支持</h3>
+                <p>高性能服务器架构，支持高并发访问。根据套餐不同，提供不同的QPS限制，满足各类应用需求。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>完善文档</h3>
+                <p>提供完整的中文开发文档，API文档、SDK使用指南、错误码说明等，助您快速上手开发。</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SDK Section -->
+    <section class="sdks">
+        <div class="section-title">
+            <h2>多语言SDK</h2>
+            <p>选择你熟悉的编程语言，快速集成彩票数据接口</p>
+        </div>
+        
+        <div class="sdk-grid">
+            <div class="sdk-card">
+                <div class="sdk-header">
+                    <div class="sdk-icon">C#</div>
+                    <div class="sdk-info">
+                        <h3>C# SDK</h3>
+                        <span>.NET Framework / .NET Core</span>
+                    </div>
+                </div>
+                <div class="sdk-code">
+<pre><code><span class="keyword">var</span> client = <span class="keyword">new</span> <span class="function">BywClient</span>(<span class="string">"TOKEN"</span>);
+<span class="keyword">var</span> result = <span class="keyword">await</span> client.<span class="function">GetLatestAsync</span>(<span class="string">"cqssc"</span>);
+Console.<span class="function">WriteLine</span>(result.Opencode);</code></pre>
+                </div>
+            </div>
+            
+            <div class="sdk-card">
+                <div class="sdk-header">
+                    <div class="sdk-icon php">PHP</div>
+                    <div class="sdk-info">
+                        <h3>PHP SDK</h3>
+                        <span>PHP 7.0+</span>
+                    </div>
+                </div>
+                <div class="sdk-code">
+<pre><code>$client = <span class="keyword">new</span> <span class="function">BywClient</span>(<span class="string">'TOKEN'</span>);
+$result = $client-><span class="function">getLatest</span>(<span class="string">'cqssc'</span>);
+<span class="function">print_r</span>($result);</code></pre>
+                </div>
+            </div>
+            
+            <div class="sdk-card">
+                <div class="sdk-header">
+                    <div class="sdk-icon js">JS</div>
+                    <div class="sdk-info">
+                        <h3>JavaScript SDK</h3>
+                        <span>Node.js / Browser</span>
+                    </div>
+                </div>
+                <div class="sdk-code">
+<pre><code><span class="keyword">const</span> client = <span class="keyword">new</span> <span class="function">BywClient</span>(<span class="string">'TOKEN'</span>);
+<span class="keyword">const</span> result = <span class="keyword">await</span> client.<span class="function">latest</span>(<span class="string">'cqssc'</span>);
+console.<span class="function">log</span>(result);</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Code Demo Section -->
+    <section class="code-section">
+        <div class="section-title">
+            <h2>快速开始</h2>
+            <p>只需几行代码，即可接入彩票实时开奖数据</p>
+        </div>
+        
+        <div class="code-tabs">
+            <button class="code-tab active">JSON响应</button>
+        </div>
+        
+        <div class="code-block">
+<pre><code>{
+  <span class="string">"Rows"</span>: <span class="number">2</span>,
+  <span class="string">"T"</span>: <span class="string">"cqssc"</span>,
+  <span class="string">"Nexttime"</span>: <span class="string">"2026-04-18 22:10:00"</span>,
+  <span class="string">"Data"</span>: [
+    {
+      <span class="string">"Expect"</span>: <span class="string">"20260418053"</span>,
+      <span class="string">"Opencode"</span>: <span class="string">"9,0,0,1,1"</span>,
+      <span class="string">"Opentime"</span>: <span class="string">"2026-04-18 21:50:03"</span>
+    },
+    {
+      <span class="string">"Expect"</span>: <span class="string">"20260418052"</span>,
+      <span class="string">"Opencode"</span>: <span class="string">"6,7,8,9,0"</span>,
+      <span class="string">"Opentime"</span>: <span class="string">"2026-04-18 21:30:02"</span>
+    }
+  ]
+}</code></pre>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.byw.bet">官网</a>
+            <a href="https://www.byw.bet/show.html">API文档</a>
+            <a href="docs/index.html">技术文档</a>
+            <a href="docs/sdk-guide.html">SDK指南</a>
+            <a href="docs/faq.html">常见问题</a>
+            <a href="https://github.com/your-repo/byw-lottery-api-sdk">GitHub</a>
+        </div>
+        <p class="copyright">
+            © 2026 博易网彩票开奖数据API SDK | 
+            彩票API接口 | 实时开奖数据API | 彩票数据SDK | 开奖数据接口平台
+        </p>
+    </footer>
+</body>
+</html>
