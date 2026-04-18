@@ -98,11 +98,28 @@ http://api.byw.bet:868/api
 ```
 byw-lottery-api-sdk/
 │
-├── src/              # SDK核心代码
-├── examples/         # 使用示例
-├── README.md        # 文档说明
+├── src/ # SDK核心代码（API封装）
+├── examples/ # 多语言调用示例（PHP / C# / Web）
+├── docs/ # API详细文档
+├── README.md # 项目说明
 └── LICENSE
+👉 本项目采用标准 SDK 结构，方便开发者快速集成与扩展。
 ```
+## 📂 示例代码（Examples）
+
+查看完整调用示例：
+
+- PHP 示例：`/examples/php-json`
+- C# 示例：`/examples/jquery-json`
+- Web 示例：`/examples/web-demo`
+
+👉 所有示例均可直接运行，用于快速集成 API。
+
+---
+
+## 📘 文档（Documentation）
+
+- 完整 API 文档请查看：`/docs/index.md`
 
 ## 🔍 SEO关键词
 
