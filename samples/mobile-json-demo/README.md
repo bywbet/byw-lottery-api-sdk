@@ -346,7 +346,7 @@ dependencies:
 ## 🔗 相关链接
 
 - 官方文档: https://www.byw.bet
-- API文档: https://www.byw.bet/show.html
+- API文档: https://www.byw.bet/docs/show.html
 - JavaScript SDK: [index.js](../../src/javascript/index.js)
 
 ---
