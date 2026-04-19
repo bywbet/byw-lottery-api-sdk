@@ -162,7 +162,7 @@ asp-demo/
 ## 🔗 相关链接
 
 - 官方文档: https://www.byw.bet
-- API文档: https://www.byw.bet/show.html
+- API文档: https://www.byw.bet/docs/show.html
 - IIS ASP 配置: https://docs.microsoft.com/en-us/iis/application-frameworks/running-classic-asp-applications
 
 ---
