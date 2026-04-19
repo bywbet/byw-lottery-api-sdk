@@ -268,4 +268,4 @@ async function safeLatest(client, lotteryType) {
 
 - 📧 邮箱: bywbet@gmail.com
 - 💬 工单: 后台提交工单
-- 📖 在线文档: https://www.byw.bet/show.html
+- 📖 在线文档: https://www.byw.bet/docs/show.html

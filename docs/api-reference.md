@@ -205,4 +205,4 @@ npm install byw-lottery-api-sdk
 
 - 📧 邮箱: bywbet@gmail.com
 - 💬 工单: 后台提交工单
-- 📖 文档: https://www.byw.bet/show.html
+- 📖 文档: https://www.byw.bet/docs/show.html

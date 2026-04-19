@@ -2,7 +2,7 @@
 
 **彩票API接口 - 实时开奖数据服务**
 
-官方文档: https://www.byw.bet | API文档: https://www.byw.bet/show.html
+官方文档: https://www.byw.bet | API文档: https://www.byw.bet/docs/show.html
 
 ---
 
@@ -247,7 +247,7 @@ Console.WriteLine(result.Opencode);
 ## 相关链接
 
 - 🌐 官网: https://www.byw.bet
-- 📖 API文档: https://www.byw.bet/show.html
+- 📖 API文档: https://www.byw.bet/docs/show.html
 - 💻 GitHub: https://github.com/your-repo/byw-lottery-api-sdk
 - ❓ 常见问题: [FAQ](./faq.md)
 
