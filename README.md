@@ -128,7 +128,7 @@ curl "http://api.byw.bet:868/api?token=YOUR_KEY&t=4&limit=5&p=xml"
 | token | ✅ | 接口密钥 | 97ea1teb952bv903 |
 | t | ✅ | 彩种代码(lotteryid) | 4 |
 | p | ✅ | 返回格式 | json |
-| limit | ❌ | 返回条数(1-20) | 5 |
+| limit | ❌ | 返回条数(1-50) | 5 |
 | nexttime | ❌ | 返回下期时间 | 1 |
 | date | ❌ | 指定日期 | 20260418 |
 
@@ -136,14 +136,14 @@ curl "http://api.byw.bet:868/api?token=YOUR_KEY&t=4&limit=5&p=xml"
 
 ```json
 {
-  "Rows": 2,
-  "T": "cqssc",
+  "rows": 2,
+  "type": "cqssc",
   "Nexttime": "2026-04-18 22:10:00",
-  "Data": [
+  "data": [
     {
-      "Expect": "20260418053",
-      "Opencode": "9,0,0,1,1",
-      "Opentime": "2026-04-18 21:50:03"
+      "expect": "20260418053",
+      "opencode": "9,0,0,1,1",
+      "opentime": "2026-04-18 21:50:03"
     }
   ]
 }
@@ -153,7 +153,7 @@ curl "http://api.byw.bet:868/api?token=YOUR_KEY&t=4&limit=5&p=xml"
 
 ## 🎯 支持的彩种
 
-> 支持 **109个** 彩种，后续将加入更多彩种接口
+> 支持 **112个** 彩种，后续将加入更多彩种接口
 
 ### 时时彩系列
 
