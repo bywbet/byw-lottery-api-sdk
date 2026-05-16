@@ -138,7 +138,7 @@ curl "http://api.byw.bet:868/api?token=YOUR_KEY&t=4&limit=5&p=xml"
 {
   "rows": 2,
   "type": "cqssc",
-  "Nexttime": "2026-04-18 22:10:00",
+  "nexttime": "2026-04-18 22:10:00",
   "data": [
     {
       "expect": "20260418053",
